@@ -1,0 +1,21 @@
+<app-reico-header></app-reico-header>
+
+<h1>{{title}}</h1>
+
+<div id="quoteFrame">
+    <div class="ui-widget-header" style="padding: 4px 10px; border-bottom: 0 none">
+        <i class="fa fa-search" style="margin: 4px 4px 0 0"></i>
+        <input #gb type="text" pInputText size="40" placeholder="Global Filter">
+    </div>
+    <p-dataTable emptyMessage="Could not retrieve any records!" [value]="orderHeaders" [rows]="10" [paginator]="true" [loading]="loading" [globalFilter]="gb" selectionMode="single" (onRowSelect)="quoteDetails($event)" #dt>
+        <p-header>List of Requests</p-header> 
+        <p-column field="transaction_timestamp" header="Timestamp" sortable="true" [filter]="true" filterMatchMode="contains"></p-column>
+
+        <p-column field="customer_number" header="Customer #" [filter]="true" sortable="true" filterMatchMode="contains"></p-column>
+        <p-column field="customer_name" header="Customer Name" [filter]="true" sortable="true" filterMatchMode="contains"></p-column>
+        <p-column field="po_number" header="PO Number" [filter]="true" sortable="true" filterMatchMode="contains"></p-column>
+        <p-column field="ordered_by" header="Ordered By" [filter]="true" sortable="true" filterMatchMode="contains"></p-column>
+    </p-dataTable>
+</div>
+
+<app-reico-footer></app-reico-footer>

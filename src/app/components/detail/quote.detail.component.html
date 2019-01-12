@@ -1,0 +1,48 @@
+<app-reico-header></app-reico-header>
+
+<h1>{{title}}</h1>
+
+<div id="detailFrameHeader">
+	<p>Online Sale Information</p>
+</div>
+<div id="detailFrame">
+	<div id="detailHeader">
+		<table>
+			<tr>
+                <div class="info-element">
+                	<p class="info-element-lbl">Online Sale Customer Number:</p>
+                	<p class="info-element-data">{{order.customer_number}}</p>
+                </div>
+                <div class="info-element">
+                	<p class="info-element-lbl">Online Sale Customer:</p>
+                 	<p class="info-element-data">{{order.customer_name}}</p>
+               </div>
+                <div class="info-element">
+                	<p class="info-element-lbl">Ordered By:</p>
+                 	<p class="info-element-data">{{order.ordered_by}}</p>
+               </div>
+			</tr>
+			<tr>
+                <div class="info-element">
+                	<p class="info-element-lbl">Online Sale Order Key:</p>
+                	<p class="info-element-data">{{order.order_key}}</p>
+                </div>
+                <div class="info-element">
+                	<p class="info-element-lbl">Online Sale Status:</p>
+                 	<p class="info-element-data">{{order.status}}</p>
+               </div>
+                <div class="info-element">
+                	<p class="info-element-lbl">PO #:</p>
+                	<p class="info-element-data">{{order.po_number}}</p>
+                </div>
+			</tr>
+		</table>
+	</div>
+    <p-dataTable [value]="order.order_details">
+        <p-header>Details for this Online Sale</p-header>
+        <p-column field="reico_sku" header="Reico SKU"></p-column>
+        <p-column field="quantity" header="Quantity"></p-column>
+    </p-dataTable>
+</div>
+
+<app-reico-footer></app-reico-footer>
